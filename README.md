@@ -1,5 +1,5 @@
 # PY_GAMES
 Games written in python
 
-### Sokoban
+### [Sokoban](https://github.com/TristitiaTribulatio/py_games/blob/main/sokoban/sokoban.py)
 ![](https://github.com/TristitiaTribulatio/py_games/blob/main/sokoban/example.png)
