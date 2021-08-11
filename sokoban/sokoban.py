@@ -20,10 +20,11 @@ class Sokoban:
 
     def choose_level(self):
         while True:
-            level = input('Enter level or exit: ')
+            count = self.count_levels()
+            level = input(f'Enter level[1-{count}] or exit: ')
             if level == 'exit':
                 return False
-            elif not level.isdigit():
+            elif not level.isdigit() or int(level) not in [n for n in range(1, count + 1)]:
                 print('Incorrect input!')
             elif level.isdigit():
                 with open('levels.txt', 'r') as file:
@@ -129,6 +130,14 @@ class Sokoban:
             print('You are win!')
             self.restart()
             return True
+
+    def count_levels(self):
+        count = 0
+        with open('levels.txt', 'r') as file:
+            for lvl in file.readlines():
+                if lvl.rstrip('\n') == 'end':
+                    count += 1
+        return count
 
     def restart(self):
         self.coordinates, self.field = {'WALL': [], 'PLACE': [], 'BOX': [], 'CHARACTER': []}, []
